@@ -1,0 +1,15 @@
+version: "3.4"
+services:
+  node-exporter:
+    build:
+      context: .
+      dockerfile: ./node-exporter/Dockerfile
+    container_name: node-exporter
+  nix-node-sensor:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: nix-node-sensor
+    environment:
+      METRIX_UUID: ${USER_PROJECT_UUID}
+      ADDRESS: udp://${DOCKER_HOST_IP}:8094
