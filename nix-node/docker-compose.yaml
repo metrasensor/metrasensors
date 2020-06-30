@@ -3,7 +3,7 @@ services:
   node-exporter:
     build:
       context: .
-      dockerfile: ./node-exporter/Dockerfile
+      dockerfile: ./Dockerfile.node
     container_name: node-exporter
   nix-node-sensor:
     build:
@@ -11,5 +11,5 @@ services:
       dockerfile: ./Dockerfile
     container_name: nix-node-sensor
     environment:
-      METRIX_UUID: ${USER_PROJECT_UUID}
-      ADDRESS: udp://${DOCKER_HOST_IP}:8094
+      METRIX_UUID: ad19118b-dda3-4e5f-ba11-465652df1909
+      ADDRESS: udp://metrix-agent:8094
