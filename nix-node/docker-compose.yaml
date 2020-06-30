@@ -11,5 +11,10 @@ services:
       dockerfile: ./Dockerfile
     container_name: nix-node-sensor
     environment:
-      METRIX_UUID: ad19118b-dda3-4e5f-ba11-465652df1909
-      ADDRESS: udp://metrix-agent:8094
+      METRIX_UUID: ${USER_PROJECT_UUID}
+      ADDRESS: udp://${DOCKER_HOST}:8094
+      PROMETHEUS: ${PROMETHEUS_HOST}
+networks:
+  default:
+    external:
+      name: metrix-network

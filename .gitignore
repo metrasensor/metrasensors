@@ -1,0 +1,10 @@
+.project
+.pydevproject
+.directory
+.settings
+.idea
+.venv
+.vagrant
+*.retry
+.vscode
+.env
