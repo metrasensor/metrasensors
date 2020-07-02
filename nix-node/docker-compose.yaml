@@ -11,9 +11,9 @@ services:
       dockerfile: ./Dockerfile
     container_name: nix-node-sensor
     environment:
-      METRIX_UUID: ${USER_PROJECT_UUID}
-      ADDRESS: udp://${DOCKER_HOST}:8094
-      PROMETHEUS: ${PROMETHEUS_HOST}
+      PROJECT_UUID: ${LOCAL_PROJECT_UUID}
+      RECEIVER_HOST: ${LOCAL_RECEIVER_HOST}
+      PROMETHEUS_HOST: ${LOCAL_PROMETHEUS_HOST}
 networks:
   default:
     external:
