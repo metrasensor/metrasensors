@@ -6,11 +6,23 @@ The NIX-Node Sensor exposes a wide variety of hardware- and kernel-related metri
 
 ## Installing and running the NIX-Node Sensor
 
+To start with, you need to run Promethius Node Exporter
+
 ```bash
 wget https://github.com/prometheus/node_exporter/releases/download/v*/node_exporter-*.*-amd64.tar.gz
 tar xvfz node_exporter-*.*-amd64.tar.gz
 cd node_exporter-*.*-amd64
 ./node_exporter
+```
+
+Then you run the NIX-Node Sensor
+
+```bash
+docker run -d \
+    --name nix-node-sensor
+    metrasensor/nix-node-sensor
+    --env PROJECT_UUID=ad19118b-dda3-4e5f-ba11-465652df1909 \
+    --env PROMETHEUS_HOST=http://localhost:9100/metrics \
 ```
 
 ## Node Exporter Collectors
@@ -64,3 +76,5 @@ uname | Exposes system information as provided by the uname system call. | Darwi
 vmstat | Exposes statistics from `/proc/vmstat`. | Linux
 xfs | Exposes XFS runtime statistics. | Linux (kernel 4.4+)
 zfs | Exposes [ZFS](http://open-zfs.org/) performance statistics. | [Linux](http://zfsonlinux.org/), Solaris
+
+*[More information about Node Exporter](https://prometheus.io/docs/guides/node-exporter/)
