@@ -20,8 +20,8 @@ Then you run the NIX-Node Sensor
 ```bash
 docker run -d metrasensor/nix-node-sensor \
     --name nix-node-sensor
-    --env PROJECT_UUID=ad19118b-dda3-4e5f-ba11-465652df1909 \
-    --env PROMETHEUS_HOST=http://localhost:9100/metrics \
+    --env PROJECT_UUID=<project_uuid> \
+    --env PROMETHEUS_HOST=http://<prometheus_host>:9100/metrics \
 ```
 
 ## Node Exporter Collectors
