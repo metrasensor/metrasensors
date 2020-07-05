@@ -18,7 +18,7 @@ cd node_exporter-*.*-amd64
 Then you run the NIX-Node Sensor
 
 ```bash
-docker run -d metrasensor/nix-node-sensor \
+docker run -d metrasensor/nix-node-sensor:latest \
     --name nix-node-sensor
     --env PROJECT_UUID=<project_uuid> \
     --env PROMETHEUS_HOST=http://<prometheus_host>:9100/metrics \
