@@ -1,0 +1,31 @@
+version: "3.4"
+services:
+  postgresql:
+    image: postgres:10-alpine
+    container_name: postgresql
+    volumes:
+      - postgres-metrix-data:/var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+  postgresql-exporter:
+    image: wrouesnel/postgres_exporter
+    container_name: postgresql-exporter
+    environment:
+      DATA_SOURCE_NAME: postgresql://postgres:password@localhost:5432/postgres?sslmode=disable
+  postgresql-sensor:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: postgresql-sensor
+    environment:
+      PROJECT_UUID: ${LOCAL_PROJECT_UUID}
+      RECEIVER_HOST: ${LOCAL_RECEIVER_HOST}
+      PROMETHEUS_HOST: ${LOCAL_PROMETHEUS_HOST}
+networks:
+  default:
+    external:
+      name: metra-network
