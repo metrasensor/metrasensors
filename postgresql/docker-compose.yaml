@@ -1,7 +1,7 @@
 version: "3.4"
 services:
   postgresql:
-    image: postgres:10-alpine
+    image: postgres:12-alpine
     container_name: postgresql
     volumes:
       - postgres-metrix-data:/var/lib/postgresql/data/pgdata
