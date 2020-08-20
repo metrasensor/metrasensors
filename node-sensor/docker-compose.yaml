@@ -12,6 +12,7 @@ services:
     container_name: nix-node-sensor
     environment:
       PROJECT_UUID: ${LOCAL_PROJECT_UUID}
+      SENSOR_NAME: ${LOCAL_SENSOR_NAME}
       RECEIVER_HOST: ${LOCAL_RECEIVER_HOST}
       PROMETHEUS_HOST: ${LOCAL_PROMETHEUS_HOST}
 networks:
