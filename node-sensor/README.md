@@ -1,10 +1,10 @@
-# NIX-Node Sensor
+# Node Sensor
 
-The NIX-Node Sensor exposes a wide variety of hardware- and kernel-related metrics.
+The Node Sensor exposes a wide variety of hardware- and kernel-related metrics.
 
 > ***NOTE:*** While the NIX-Node Sensor is for *nix systems, there is the Windows exporter for Windows that serves an analogous purpose.
 
-## Installing and running the NIX-Node Sensor
+## Installing and running the Node Sensor
 
 To start with, you need to run Promethius Node Exporter
 
@@ -19,7 +19,7 @@ Then you run the NIX-Node Sensor
 
 ```bash
 docker run -d metrasensor/nix-node-sensor:latest \
-    --name nix-node-sensor
+    --name nix-node-sensor \
     --env PROJECT_UUID=<your_project_uuid> \
     --env SENSOR_NAME=<your_sensor_name> \
     --env PROMETHEUS_HOST=http://<prometheus_host>:9100/metrics \
