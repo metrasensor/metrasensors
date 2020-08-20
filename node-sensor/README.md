@@ -18,7 +18,7 @@ cd node_exporter-*.*-amd64
 Then you run the NIX-Node Sensor
 
 ```bash
-docker run -d metrasensor/nix-node-sensor:latest \
+docker run -d metrasensor/node-sensor:latest \
     --name nix-node-sensor \
     --env PROJECT_UUID=<your_project_uuid> \
     --env SENSOR_NAME=<your_sensor_name> \
