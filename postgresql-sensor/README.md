@@ -8,7 +8,7 @@ To start with, you need to run Promethius PostgreSQL Exporter and connect to the
 
 ```bash
 docker run -d wrouesnel/postgres_exporter \
-    --name postgresqp-exporter \
+    --name postgresql-exporter \
     --env DATA_SOURCE_NAME="postgresql://postgres:password@localhost:5432/postgres?sslmode=disable"
 ```
 
@@ -17,14 +17,13 @@ Then you run the PostgreSQL Sensor:
 ```bash
 docker run -d metrasensor/postgresql-sensor:latest \
     --name postgresql-sensor \
-    --env PROJECT_UUID=<your_project_uuid> \
-    --env SENSOR_NAME=<your_sensor_name> \
-    --env PROMETHEUS_HOST=http://<prometheus_host>:9100/metrics
+    --env PROJECT_UUID="<your_project_uuid>" \
+    --env SENSOR_NAME="<your_sensor_name>" \
+    --env PROMETHEUS_HOST="http://<prometheus_host>:9100/metrics"
 ```
 
 ## Environment Variables for PostgreSQL Server Exporter
 
-The following environment variables configure the exporter:
 | Name | Description |  
 |------|-------------|
 | DATA_SOURCE_NAME |  The default legacy format. Accepts `URI` form and `key=value` form arguments. The `URI` may contain the username and password to connect with. |
