@@ -1,4 +1,4 @@
-FROM  telegraf:1.14.4-alpine
+FROM  telegraf:1.15-alpine
 
 ARG   EMPTY
 ENV   PROJECT_UUID=$EMPTY
