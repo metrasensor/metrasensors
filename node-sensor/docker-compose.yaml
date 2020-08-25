@@ -18,4 +18,4 @@ services:
 networks:
   default:
     external:
-      name: metrix-network
+      name: metra-network
