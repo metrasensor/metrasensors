@@ -9,7 +9,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    container_name: nix-node-sensor
+    container_name: node-sensor
     environment:
       PROJECT_UUID: ${LOCAL_PROJECT_UUID}
       SENSOR_NAME: ${LOCAL_SENSOR_NAME}
